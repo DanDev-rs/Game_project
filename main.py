@@ -1,16 +1,39 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import pygame
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+class Field:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+        self.board = [[0] * width for _ in range(height)]
+        self.left = 10
+        self.top = 10
+        self.cell_size = 30
+
+    def set_view(self, left, top, cell_size):
+        self.left = left
+        self.top = top
+        self.cell_size = cell_size
 
 
-# Press the green button in the gutter to run the script.
+class Tile:
+    def __init__(self):
+        pass
+
+
+class SurfaceTile(Tile):
+    pass
+
+
+class VoidTile(Tile):
+    pass
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    pygame.init()
+    size = width, height = 800, 600
+    screen = pygame.display.set_mode(size)
+    pygame.display.flip()
+    while pygame.event.wait().type != pygame.QUIT:
+        pass
+    pygame.quit()
